@@ -76,11 +76,16 @@ body * {
   left: 0;
   z-index: 1;
   transform: translateY(-50%);
+
+  animation: volta 0.3s;
 }
 
 .light #switch button {
-  right: 0;
-  left: initial;
+  animation: suave 0.3s forwards;
+}
+
+#switch button:hover {
+  outline: 8px solid var(--highlight-color);
 }
 
 #switch span {
@@ -151,4 +156,31 @@ ul li a:hover {
 
 #social-links a:hover {
   background: var(--highlight-color);
+}
+
+@media (min-width: 700px) {
+  :root {
+    --bg-url: url(./assets/assets/bg-desktop.jpg);
+  }
+  .light {
+    --bg-url: url(./assets/assets/bg-desktop-light.jpg);
+  }
+}
+
+@keyframes suave {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+
+@keyframes volta {
+  from {
+    left: 50%;
+  }
+  to {
+    left: 0;
+  }
 }
